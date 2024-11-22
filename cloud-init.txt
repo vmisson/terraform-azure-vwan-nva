@@ -1,0 +1,5 @@
+#cloud-config
+runcmd:
+  - echo 1 > /proc/sys/net/ipv4/ip_forward
+  - iptables -A FORWARD -j ACCEPT
+  - iptables -t nat -A POSTROUTING -j MASQUERADE
